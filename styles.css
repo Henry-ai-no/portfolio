@@ -1,1 +1,366 @@
+:root {
+    --primary-color: #0a192f;
+    --secondary-color: #64ffda;
+    --accent-color: #ff2d55;
+    --background-color: #0a192f;
+    --text-color: #ccd6f6;
+    --gradient: linear-gradient(135deg, #0a192f, #112240);
+    --neon-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+    --glass-effect: rgba(255, 255, 255, 0.1);
+}
 
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ヘッダーの未来的なデザイン */
+header {
+    background: var(--gradient);
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.tech-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(45deg, rgba(10, 25, 47, 0.7) 0%, rgba(17, 34, 64, 0.7) 100%),
+        url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGgtNnYxMmgtNnYtNmgtNnYxMmg2djZoNnYtNmg2eiIgc3Ryb2tlPSJyZ2JhKDEwMCwgMjU1LCAyMTgsIDAuMSkiIHN0cm9rZS13aWR0aD0iMiIvPjwvZz48L3N2Zz4=');
+    opacity: 0.1;
+    animation: backgroundMove 20s linear infinite;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.name-highlight {
+    font-size: 4.5rem;
+    font-weight: 800;
+    background: linear-gradient(45deg, var(--secondary-color), #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: var(--neon-shadow);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.name-subtitle {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    display: block;
+    letter-spacing: 3px;
+}
+
+.tech-text {
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.tech-badges {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.badge {
+    background: rgba(100, 255, 218, 0.1);
+    color: var(--secondary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid var(--secondary-color);
+    font-size: 0.9rem;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.badge:hover {
+    background: rgba(100, 255, 218, 0.2);
+    transform: translateY(-2px);
+    box-shadow: var(--neon-shadow);
+}
+
+/* セクションの未来的なデザイン */
+section {
+    background: rgba(17, 34, 64, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-effect);
+    border-radius: 15px;
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    transition: all 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--secondary-color);
+    box-shadow: var(--neon-shadow);
+}
+
+.project {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 4px solid var(--secondary-color);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.project:hover {
+    transform: translateX(10px);
+    box-shadow: -5px 0 15px rgba(100, 255, 218, 0.2);
+}
+
+/* アニメーション */
+@keyframes backgroundMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+}
+
+@keyframes glowing {
+    0% { box-shadow: 0 0 5px var(--secondary-color); }
+    50% { box-shadow: 0 0 20px var(--secondary-color); }
+    100% { box-shadow: 0 0 5px var(--secondary-color); }
+}
+
+/* レスポンシブデザインの調整 */
+@media (max-width: 768px) {
+    .name-highlight {
+        font-size: 3rem;
+    }
+    
+    .name-subtitle {
+        font-size: 1.4rem;
+    }
+    
+    .tech-badges {
+        flex-direction: column;
+        align-items: center;
+    }
+} 
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    perspective: 1000px;
+}
+
+.testimonial {
+    background: rgba(17, 34, 64, 0.8);
+    border: 1px solid var(--secondary-color);
+    border-radius: 15px;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    transform-style: preserve-3d;
+    backdrop-filter: blur(10px);
+}
+
+.testimonial:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 0 15px 30px rgba(100, 255, 218, 0.2),
+                0 0 0 1px rgba(100, 255, 218, 0.1);
+}
+
+.testimonial-header {
+    background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), rgba(17, 34, 64, 0.8));
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+.testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid var(--secondary-color);
+    position: relative;
+}
+
+.testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-meta h3 {
+    color: var(--secondary-color);
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.testimonial-meta span {
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+.tech-icon {
+    width: 30px;
+    height: 30px;
+    color: var(--secondary-color);
+}
+
+.testimonial-content {
+    padding: 1.5rem;
+    position: relative;
+}
+
+.testimonial-content::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-size: 5rem;
+    color: var(--secondary-color);
+    opacity: 0.1;
+}
+
+.tech-rating {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(100, 255, 218, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rating-item {
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.rating-score {
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-family: 'SF Mono', monospace;
+    position: relative;
+}
+
+.rating-score::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--secondary-color);
+    animation: glowing 2s infinite;
+}
+
+/* アニメーション追加 */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* 背景パターンのアニメーション */
+.tech-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.05;
+    background-image: 
+        linear-gradient(45deg, var(--secondary-color) 1px, transparent 1px),
+        linear-gradient(-45deg, var(--secondary-color) 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: patternMove 20s linear infinite;
+}
+
+@keyframes patternMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 30px 30px; }
+}
+
+/* メディアクエリの更新 */
+@media (max-width: 768px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .testimonial-header {
+        padding: 1rem;
+    }
+    
+    .testimonial-avatar {
+        width: 50px;
+        height: 50px;
+    }
+} 
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.social-link:hover {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+.x-icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+/* testimonial-metaの既存のスタイルを調整 */
+.testimonial-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.testimonial-meta span {
+    margin-bottom: 0.2rem;
+} 
